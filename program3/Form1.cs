@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace program3
 
             saveFileDialog1.Filter = "XML files(*.xml)|*.xml";
             saveFileDialog1.DefaultExt = "xml";
+            
         }
         RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
         private string RSAPrivateKey = null;
@@ -67,6 +69,11 @@ namespace program3
         {
             try
             {
+                if (cipherbytes == null)
+                {
+                    MessageBox.Show("Файл не загружен");
+                    return;
+                }
                 //read ciphertext, decrypt it to plaintext
                 byte[] plainbytes = rsa.Decrypt(cipherbytes, false); //fOAEP needs high encryption pack
 
@@ -97,6 +104,7 @@ namespace program3
             btn_Encrypt.Enabled = true;
             btn_SavePrivateKey.Enabled = true;
             btn_SavePublicKey.Enabled = true;
+            btn_Decrypt.Enabled = true;
         }
 
         private void btn_LoadPublicKey_Click(object sender, EventArgs e)
@@ -142,6 +150,24 @@ namespace program3
                 using (StreamWriter writer = new StreamWriter(path))
                     writer.Write(RSAPublicKey);
             }
+        }
+
+        private void btn_SaveFile_Click(object sender, EventArgs e)
+        {
+            if (cipherbytes == null) return;
+            File.WriteAllBytes("message",cipherbytes);
+        }
+
+        private void btn_loadFile_Click(object sender, EventArgs e)
+        {
+            cipherbytes = File.ReadAllBytes("message");
+            textCipherbytes.Text = Encoding.UTF8.GetString(cipherbytes);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Debug.WriteLine(rsa.KeySize);
         }
     }
 }

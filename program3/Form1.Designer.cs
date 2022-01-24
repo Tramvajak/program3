@@ -46,6 +46,8 @@ namespace program3
             this.textCipherbytes = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btn_loadFile = new System.Windows.Forms.Button();
+            this.btn_SaveFile = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,6 +173,7 @@ namespace program3
             // textBox_de
             // 
             this.textBox_de.Location = new System.Drawing.Point(6, 19);
+            this.textBox_de.Multiline = true;
             this.textBox_de.Name = "textBox_de";
             this.textBox_de.Size = new System.Drawing.Size(318, 20);
             this.textBox_de.TabIndex = 0;
@@ -199,11 +202,33 @@ namespace program3
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btn_loadFile
+            // 
+            this.btn_loadFile.Location = new System.Drawing.Point(524, 391);
+            this.btn_loadFile.Name = "btn_loadFile";
+            this.btn_loadFile.Size = new System.Drawing.Size(70, 23);
+            this.btn_loadFile.TabIndex = 28;
+            this.btn_loadFile.Text = "Load file";
+            this.btn_loadFile.UseVisualStyleBackColor = true;
+            this.btn_loadFile.Click += new System.EventHandler(this.btn_loadFile_Click);
+            // 
+            // btn_SaveFile
+            // 
+            this.btn_SaveFile.Location = new System.Drawing.Point(422, 391);
+            this.btn_SaveFile.Name = "btn_SaveFile";
+            this.btn_SaveFile.Size = new System.Drawing.Size(70, 23);
+            this.btn_SaveFile.TabIndex = 29;
+            this.btn_SaveFile.Text = "Save file";
+            this.btn_SaveFile.UseVisualStyleBackColor = true;
+            this.btn_SaveFile.Click += new System.EventHandler(this.btn_SaveFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 482);
+            this.Controls.Add(this.btn_SaveFile);
+            this.Controls.Add(this.btn_loadFile);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btn_Decrypt);
             this.Controls.Add(this.groupBox2);
@@ -217,6 +242,7 @@ namespace program3
             this.Controls.Add(this.btn_CreateRSA);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -248,6 +274,8 @@ namespace program3
         private System.Windows.Forms.TextBox textCipherbytes;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btn_loadFile;
+        private System.Windows.Forms.Button btn_SaveFile;
     }
 }
 
