@@ -183,7 +183,7 @@ namespace program3
             this.groupBox4.Size = new System.Drawing.Size(605, 88);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ciphertext Displayed as Byte Array";
+            this.groupBox4.Text = "Ciphertext Displayed as String";
             // 
             // textCipherbytes
             // 

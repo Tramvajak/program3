@@ -58,16 +58,7 @@ namespace program3
             byte[] plainbytes = Encoding.UTF8.GetBytes(textBox_en.Text);
             cipherbytes = rsa.Encrypt(plainbytes, false); //fOAEP needs high encryption pack
 
-            //display ciphertext as text string
-            //textCiphertext.Text = Encoding.UTF8.GetString(cipherbytes);
-
-            //display ciphertext byte array in hex format
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < cipherbytes.Length; i++)
-            {
-                sb.Append(String.Format("{0,2:X2} ", cipherbytes[i]));
-            }
-            textCipherbytes.Text = sb.ToString();
+            textCipherbytes.Text = Encoding.UTF8.GetString(cipherbytes);
 
             btn_Decrypt.Enabled = true;
         }
